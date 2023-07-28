@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Displays the PID, also displays the process name, of processes whose name contain the word bash.
+
+pids=$(ps -ef | grep -i bash | awk '{print $2}')
+
+for pid in $pids; do
+	  process_name=$(ps -p $pid | awk '{print $11}')
+	    echo "PID: $pid, Process Name: $process_name"
+    done
